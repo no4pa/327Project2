@@ -1,0 +1,38 @@
+version: '3'
+services:
+  worker-0:
+    image: tf-multi-worker
+    memory: 8g
+    cpus: 0.25
+    environment:
+      - WORKER_INDEX=0
+      - NUM_EPOCHS=3
+      - BATCH_SIZE=32
+    networks:
+      - tf_train_network
+
+  worker-1:
+    image: tf-multi-worker
+    memory: 8g
+    cpus: 0.25
+    environment:
+      - WORKER_INDEX=1
+      - NUM_EPOCHS=3
+      - BATCH_SIZE=32
+    networks:
+      - tf_train_network
+
+  worker-2:
+    image: tf-multi-worker
+    memory: 8g
+    cpus: 0.25
+    environment:
+      - WORKER_INDEX=2
+      - NUM_EPOCHS=3
+      - BATCH_SIZE=32
+    networks:
+      - tf_train_network
+
+networks:
+  tf_train_network:
+    driver: bridge

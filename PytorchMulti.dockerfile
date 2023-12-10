@@ -1,15 +1,17 @@
 # Use the official Python image as the base image
-FROM python:3.9
+FROM pytorch/pytorch:latest
 
 # Set the working directory inside the container
 WORKDIR /app
 
+COPY requirements.txt .
+
 # Install the required libraries
-RUN pip install tensorflow tensorflow-datasets torch
+RUN pip install -r requirements.txt
 
 # Copy the Python script into the container
-COPY app/PytorchMultiWorker.py .
+COPY app/PytorchThreeWorker.py .
 
 # Run the Python script when the container starts
-CMD ["python", "PytorchMultiWorker.py"]
+CMD ["python", "PytorchThreeWorker.py"]
 

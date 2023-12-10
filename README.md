@@ -25,5 +25,5 @@ flags in the commands and in the docker compose files.
       2. docker compose up -f tf-docker-compose.yml
    4. _For Pytorch Multi Worker:_
       1. docker build -t pytorch-multi-worker -f PytorchMulti.dockerfile .
-      2. docker run -m 8g --cpus=2 pytorch-multi-worker
+      2. docker compose up -f docker-compose.yml
 

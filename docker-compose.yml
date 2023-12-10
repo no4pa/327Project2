@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  container1:
+    build:
+      context: .
+    command: python PytorchThreeWorker.py
+    environment:
+      - RANK=0
+      - WORLD_SIZE=3
+
+  container2:
+    build:
+      context: .
+    command: python PytorchThreeWorker.py
+    environment:
+      - RANK=1
+      - WORLD_SIZE=3
+
+  container3:
+    build:
+      context: .
+    command: python PytorchThreeWorker.py
+    environment:
+      - RANK=2
+      - WORLD_SIZE=3
